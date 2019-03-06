@@ -97,7 +97,7 @@ console.log(height)
   var drawLegendLabels=function(colors)
   {
     var legendWidth=200;
-    var legendHeight=400;
+    var legendHeight=200;
 
     var svg=
     d3.select("#legend")
