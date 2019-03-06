@@ -67,15 +67,15 @@ console.log(height)
     drawChart(newData);
     drawLabels(newData);
     drawLegend(newData);
+    drawLegendLabels(newData)
       },
     function(err){console.log(err);}
 
   );
 
   var drawLegend=function(colors){
-  legendWidth=50;
-  legendHeight=50;
-  legendBarWidth=50;
+  legendWidth=200;
+  legendHeight=200;
   var svg=
   d3.select("#legend")
   .attr("width", legendWidth)
@@ -85,10 +85,32 @@ console.log(height)
   .data(colors)
   .enter()
   .append("rect")
+  .attr("y", function(d,i)
+    {return i*30;})
   .attr("x", "50")
-  .attr("y", "50")
-  .attr("width", "50")
-  .attr("height", "50")
+  .attr("width", "20")
+  .attr("height", "20")
   .attr("fill", function(d)
     {return d.color;})
   }
+
+  var drawLegendLabels=function(colors)
+  {
+    var legendWidth=200;
+    var legendHeight=400;
+
+    var svg=
+    d3.select("#legend")
+    .attr("width", legendWidth)
+    .attr("height", legendHeight)
+  svg.selectAll("text")
+  .data(colors)
+  .enter()
+  .append("text")
+  .text(function(d){
+    return d.color;})
+  .attr("y", function(d,i)
+      {return (i*30)+15;})
+  .attr("x", "100")
+  .attr("fill", "black");
+}
