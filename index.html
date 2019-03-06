@@ -5,7 +5,34 @@
     <title></title>
   </head>
   <body>
-<a href="csvData.html">CSV Data Chart</a><br />
-<a href="jsonData.html">JSON Data Chart</a>
+
+
+
+<p>CSV Bar Chart</p>
+<script src="https://d3js.org/d3.v5.js"></script>
+<script src="csvChart.js"></script>
+
+<svg id=csv>
+</svg>
+<svg id=legend>
+</svg>
+
+<p>JSON Bar Chart</p>
+<script src="https://d3js.org/d3.v5.js"></script>
+  <script src="jsonChart.js"></script>
+<svg id=json>
+</svg>
+
+
   </body>
 </html>
+
+<style>
+#csv{
+}
+
+#legend{
+  float:right;
+  clear:left;
+}
+</style>

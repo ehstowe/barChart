@@ -7,7 +7,7 @@ var height=200;
 var barWidth=width/colors.length;
 
 var svg=
-d3.select("svg")
+d3.select("#json")
 .attr("width", width)
 .attr("height", height)
 
@@ -33,7 +33,7 @@ var drawLabels=function(colors)
   var barWidth=width/colors.length;
 
   var svg=
-  d3.select("svg")
+  d3.select("#json")
   .attr("width", width)
   .attr("height", height)
 svg.selectAll("text")
@@ -55,18 +55,6 @@ dataP.then(function(data)
 {
 drawChart(data);
 drawLabels(data);
-createLegend(data);
 },
 function(err){console.log(err);}
 )
-
-var createLegend=function(data){
-var table=d3.select("h1").append("table");
-var cols=table.selectAll("tr")
-.data(dataP)
-.enter()
-.append("tr");
-cols.append("td").text(function(d){return d.color})
-.style("background", function(d){
-  if (d.color=="blue"){return "blue"}
-})}
